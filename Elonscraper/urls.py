@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+#from mismo directorio importa el file views
+from . import views
+
+#urls que disparan las funciones en views.py
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.spacex),
+    path('spacex/', views.spacex),
+    path('tesla/', views.tesla),
+    path('twitter/', views.twitter),
 ]
