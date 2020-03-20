@@ -8,9 +8,19 @@ class ElonSpider(scrapy.Spider):
 
 
     def parse(self, response):
-        #instancia del item
-        item = Spacex_Item()
-        item["titulo"] = response.css("h2.title > a").extract_first()
-        item["body"] = response.css("div.summary > p").extract_first()
-        item["fecha"] = response.css("div.date").extract_first()
-        yield item
+        #var que almacena todos los divs que tienen un post
+        all_post = response.css('div.views-row')
+        
+        #ciclo que glides over each post dentro de la lista de posts
+        for post in all_post:
+            #instancia del item
+            item = Spacex_Item()
+            
+            #variables que almacenan la info de cada post
+            item["titulo"] = post.css("h2.title > a::text").extract()
+            item["body"] = post.css("div.summary > p::text").extract()
+            item["fecha"] = post.css("div.date::text").extract()
+            yield item
+
+
+
