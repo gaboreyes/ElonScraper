@@ -6,7 +6,14 @@
   <title>Spacex</title>
 </head>
 <body>
-  <header>header</header>
+  <header>headerr</header>
+  <div class="SpacexItems">
+    {% for item in items %}
+      {{ item.titulo }}
+      {{ item.fecha }}
+      {{ item.body }}
+    {% endfor %}
+  </div>
   <footer>footer</footer>
 </body>
 </html>
