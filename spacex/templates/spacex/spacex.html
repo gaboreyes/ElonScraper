@@ -9,9 +9,11 @@
   <header>headerr</header>
   <div class="SpacexItems">
     {% for item in items %}
-      {{ item.titulo }}
-      {{ item.fecha }}
-      {{ item.body }}
+      <div class="item">
+        <h2>{{ item.titulo }}</h2>
+        <p class="fecha">{{ item.fecha }}</p>
+        <p>{{ item.body }}</p>
+      </div>
     {% endfor %}
   </div>
   <footer>footer</footer>
