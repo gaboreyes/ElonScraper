@@ -8,4 +8,5 @@
 
 class CrawlingPipeline(object):
     def process_item(self, item, spider):
+        print("Pipeline: " + item['titulo'][0])
         return item
